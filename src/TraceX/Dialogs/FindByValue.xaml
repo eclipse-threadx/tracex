@@ -1,0 +1,235 @@
+﻿<Window x:Class="AzureRTOS.TraceManagement.Dialogs.FindByValue"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Find By Value"
+        Height="326"
+        Width="272"
+        Topmost="True"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="90" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Name="contextLabel"
+                   x:Uid="contextLabel"
+                   Text="Context"
+                   Grid.Row="1"
+                   Grid.Column="2"
+                   FontSize="14"
+                   VerticalAlignment="Center"
+                   Grid.ColumnSpan="2"
+                   Height="18.62"
+                   Margin="0,0,70,0" />
+
+        <ComboBox Name="contextInput"
+                  Grid.Row="1"
+                  Grid.Column="3"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Stretch"
+                  Grid.ColumnSpan="2"
+                  SelectionChanged="contextInput_SelectionChanged"
+                  AutomationProperties.LabeledBy="{Binding ElementName=contextLabel}" />
+
+        <TextBlock Name="eventIDLabel"
+                   x:Uid="eventIDLabel"
+                   Text="Event ID"
+                   Grid.Row="2"
+                   Grid.Column="2"
+                   FontSize="14"
+                   VerticalAlignment="Center"
+                   Grid.ColumnSpan="2"
+                   Height="18.62"
+                   Margin="0,0,70,0" />
+
+        <TextBox Name="eventIDInput"
+                 Grid.Row="2"
+                 Grid.Column="3"
+                 VerticalContentAlignment="Bottom"
+                 HorizontalContentAlignment="Right"
+                 Grid.ColumnSpan="2"
+                 AutomationProperties.LabeledBy="{Binding ElementName=eventIDLabel}"/>
+
+        <TextBlock Name="info1Label"
+                   x:Uid="info1Label"
+                   Text="Info 1"
+                   Grid.Row="3"
+                   Grid.Column="2"
+                   FontSize="14"
+                   VerticalAlignment="Center"
+                   Grid.ColumnSpan="2"
+                   Height="18.62"
+                   Margin="0,0,70,0" />
+
+        <TextBox Name="info1Input"
+                 Grid.Row="3"
+                 Grid.Column="3"
+                 VerticalContentAlignment="Bottom"
+                 HorizontalContentAlignment="Right"
+                 Grid.ColumnSpan="2"
+                 AutomationProperties.LabeledBy="{Binding ElementName=info1Label}"/>
+
+        <TextBlock Name="info2Label"
+                   x:Uid="info2Label"
+                   Text="Info 2"
+                   Grid.Row="4"
+                   Grid.Column="2"
+                   FontSize="14"
+                   VerticalAlignment="Center"
+                   Grid.ColumnSpan="2"
+                   Height="18.62"
+                   Margin="0,0,70,0" />
+
+        <TextBox Name="info2Input"
+                 Grid.Row="4"
+                 Grid.Column="3"
+                 VerticalContentAlignment="Bottom"
+                 HorizontalContentAlignment="Right"
+                 Grid.ColumnSpan="2"
+                 AutomationProperties.LabeledBy="{Binding ElementName=info2Label}" />
+
+        <TextBlock Name="info3Label"
+                   x:Uid="info3Label"
+                   Text="Info 3"
+                   Grid.Row="5"
+                   Grid.Column="2"
+                   FontSize="14"
+                   VerticalAlignment="Center"
+                   Grid.ColumnSpan="2"
+                   Height="18.62"
+                   Margin="0,0,70,0" />
+
+        <TextBox Name="info3Input"
+                 Grid.Row="5"
+                 Grid.Column="3"
+                 VerticalContentAlignment="Bottom"
+                 HorizontalContentAlignment="Right"
+                 Grid.ColumnSpan="2"
+                 AutomationProperties.LabeledBy="{Binding ElementName=info3Label}" />
+
+        <TextBlock Name="info4Label"
+                   x:Uid="info4Label"
+                   Text="Info 4"
+                   Grid.Row="6"
+                   Grid.Column="2"
+                   FontSize="14"
+                   VerticalAlignment="Center"
+                   Grid.ColumnSpan="2"
+                   Height="18.62"
+                   Margin="0,0,70,0" />
+
+        <TextBox Name="info4Input"
+                 Grid.Row="6"
+                 Grid.Column="3"
+                 VerticalContentAlignment="Bottom"
+                 HorizontalContentAlignment="Right"
+                 Grid.ColumnSpan="2"
+                 AutomationProperties.LabeledBy="{Binding ElementName=info4Label}" />
+
+        <CheckBox Name="matchAllFields"
+                  Grid.Row="7"
+                  Grid.Column="3"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  Visibility="Visible"
+                  Unchecked="matchAllFields_Unchecked"
+                  Checked="matchAllFields_Checked"
+                  AutomationProperties.LabeledBy="{Binding ElementName=matchAllFieldsLabel}" />
+
+        <TextBlock Name="matchAllFieldsLabel"
+                   x:Uid="matchAllFieldsLabel"
+                   Text="Match All Fields"
+                   FontSize="14"
+                   Grid.Row="7"
+                   Grid.Column="3"
+                   Margin="25,0,0,0"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" />
+
+        <CheckBox Name="matchAnyField"
+                  Grid.Row="8"
+                  Grid.Column="3"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Visibility="Visible"
+                  Unchecked="matchAnyField_Unchecked"
+                  Checked="matchAnyField_Checked"
+                  AutomationProperties.LabeledBy="{Binding ElementName=matchAnyFieldLabel}" />
+
+        <TextBlock Name="matchAnyFieldLabel"
+                   x:Uid="matchAnyFieldLabel"
+                   Text="Match Any Field"
+                   FontSize="14"
+                   Grid.Row="8"
+                   Grid.Column="3"
+                   Margin="25,0,0,0"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top" />
+
+        <TextBlock Name="searchResults"
+                   Grid.Row="8"
+                   Grid.Column="2"
+                   VerticalAlignment="Bottom"
+                   Foreground="Gray"
+                   TextAlignment="Center"
+                   Grid.ColumnSpan="2"
+                   Margin="27,0,22.577,0" />
+
+        <Button  Name="btnPrevious"
+                 ToolTip="Previous"
+                 FontWeight="bold"
+                 Click="btnPrevious_Click"
+                 Margin="0,0,0,0"
+                 HorizontalAlignment="Left"
+                 Width="Auto"
+                 Height="Auto"
+                 Grid.Row="9"
+                 Grid.Column="2"
+                 Grid.ColumnSpan="2"
+                 AutomationProperties.Name="Previous">
+            <Image Name="image3"
+                   Width="90"
+                   Height="20"
+                   FlowDirection="LeftToRight"
+                   Source="/TraceX;component/Images/Play_24x24_previous.png" />
+        </Button>
+
+        <Button Name="btnNext"
+                ToolTip="Next"
+                FontWeight="bold"
+                Click="btnNext_Click"
+                Grid.Row="9"
+                Grid.Column="3"
+                Grid.ColumnSpan="2"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Right"
+                AutomationProperties.Name="Next">
+            <Image Name="image4"
+                   Width="90"
+                   Height="20"
+                   FlowDirection="LeftToRight"
+                   Source="/TraceX;component/Images/Play_24x24_next.png" />
+        </Button>
+    </Grid>
+</Window>

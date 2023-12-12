@@ -1,0 +1,5 @@
+//Custom event icon definitions
+//Events from 4096 through 65535
+//Format: event-number, event-name, 2-letter-abbreviation, RGB-color-top, RGB-color-bottom, info1-lable, info2-lable, info3-lable, info4-lable
+Start
+End

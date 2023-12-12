@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:settings="clr-namespace:AzureRTOS.TraceManagement.Properties">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+            <settings:Settings x:Key="settings" />
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

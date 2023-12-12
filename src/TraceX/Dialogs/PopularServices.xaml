@@ -1,0 +1,58 @@
+﻿<Window x:Class="AzureRTOS.TraceManagement.Dialogs.PopularServices"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TraceX Popular Services"
+        Icon="/TraceX;component/Images/TraceX.ico"
+        Height="Auto"
+        Width="Auto"
+        SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False"
+        Topmost="True">
+
+    <Window.Resources>
+        <DataTemplate x:Key="PercentCell">
+            <StackPanel Orientation="Horizontal">
+                <Rectangle Height="10"
+                           Width="{Binding Path=Content.Percent100}">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="Blue" />
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock Margin="5,0,0,0"
+                           Text="{Binding Path=Content.PercentString}" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <ComboBox Grid.Row="0"
+                  Name="comboBox1"
+                  AutomationProperties.Name="Popular Services Scope"
+                  VerticalAlignment="Top"
+                  SelectionChanged="comboBox1_SelectionChanged" />
+        <ListView Grid.Row="1"
+                  Name="listView1"
+                  AutomationProperties.Name="Popular Services List"
+                  GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler"
+                  GridViewColumnHeader.PreviewKeyDown="GridViewColumnHeaderKeyDownHandler">
+            <ListView.View>
+                <GridView ColumnHeaderContainerStyle="{StaticResource KeyboardFocusableListViewHeaderStyle}">
+                    <GridViewColumn Header="Service"
+                                    DisplayMemberBinding="{Binding Path=Content.Name}"
+                                    Width="200" />
+                    <GridViewColumn Header="Occurrences"
+                                    DisplayMemberBinding="{Binding Path=Content.Count}"
+                                    Width="200" />
+                    <GridViewColumn Header="Percent used"
+                                    Width="200"
+                                    CellTemplate="{StaticResource PercentCell}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

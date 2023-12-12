@@ -1,0 +1,54 @@
+﻿<Window x:Class="AzureRTOS.TraceManagement.Dialogs.PerformStats"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TraceX Performance Statistics"
+        Icon="/TraceX;component/Images/TraceX.ico"
+        Height="Auto"
+        Width="Auto"
+        SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False"
+        Topmost="True">
+
+    <Window.Resources>
+        <DataTemplate x:Key="PercentCell">
+            <StackPanel Orientation="Horizontal">
+                <Rectangle Height="10"
+                           Width="{Binding Path=Content.Usage, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}}">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="Blue" />
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock Margin="5,0,0,0"
+                           Text="{Binding Path=Content.Usage, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}}" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <ComboBox Grid.Row="0"
+                  Name="comboBox1"
+                  AutomationProperties.Name="Performance Scope"
+                  VerticalAlignment="Top"
+                  SelectionChanged="comboBox1_SelectionChanged"
+                  />
+        <ListView Grid.Row="1"
+                  Name="lstvwPerfStats"
+                  AutomationProperties.Name="List View Performance Stats">
+            <ListView.View>
+                <GridView AutomationProperties.Name="Grid View Header">
+                    <GridViewColumn Header="Statistic"
+                                    DisplayMemberBinding="{Binding Path=Content.Statistic}"
+                                    Width="280" />
+                    <GridViewColumn Header="Occurrences"
+                                    DisplayMemberBinding="{Binding Path=Content.Occurrences}"
+                                    Width="200" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

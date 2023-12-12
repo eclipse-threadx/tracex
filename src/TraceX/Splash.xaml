@@ -1,0 +1,53 @@
+﻿<Window x:Class="AzureRTOS.TraceManagement.Splash"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Splash"
+        Height="270"
+        Width="426"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterScreen"
+        BorderThickness="0"
+        MouseUp="Window_MouseUp">
+    <Grid>
+        <Image Source="Images/tracexlogo.jpg" />
+        <Canvas>
+            <TextBlock Text="Version Placeholder"
+                       FontSize="18"
+                       FontWeight="Black"
+                       Foreground="Gold"
+                       Canvas.Left="151"
+                       Canvas.Top="125"
+                       TextAlignment="Center"
+                       Name="VersionString" Width="248"/>
+            <TextBlock Text="Build Date:"
+                       FontSize="11"
+                       FontWeight="Black"
+                       Foreground="Gold"
+                       Canvas.Left="151"
+                       Canvas.Top="166"
+                       TextAlignment="Center"
+                       Name="BuildDateText"
+                       Height="21"
+                       Width="248" />
+            <Button Canvas.Left="220"
+                    Canvas.Top="220"
+                    Height="36"
+                    Name="btnClose"
+                    Width="72"
+                    Visibility="Hidden"
+                    Click="btnClose_Click"
+                    GotFocus="btnGot_Focus"
+                    LostFocus="btnLose_Focus"
+                    MouseEnter="btnMouse_Enter"
+                    MouseLeave="btnMouse_Leave"
+                    IsDefault="False"
+                    Background="Black"
+                    BorderBrush="Gold"
+                    Foreground="Gold"
+                    AllowDrop="False"
+                    Focusable="True">Close</Button>
+        </Canvas>
+    </Grid>
+</Window>

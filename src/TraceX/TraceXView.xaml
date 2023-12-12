@@ -1,0 +1,461 @@
+﻿<Window x:Class="AzureRTOS.TraceManagement.TraceXView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:z="clr-namespace:AzureRTOS.TraceManagement.Components"
+        Title="Azure RTOS TraceX 6.0.0"
+        Closed="Window_Closed"
+        ContentRendered="OnContentRendered"
+        Icon="/TraceX;component/Images/TraceX.ico"
+        MinWidth="420"
+        MinHeight="270"
+        Height="{Binding Source={StaticResource settings}, Path=Default.MainHeight, Mode=TwoWay}"
+        Width="{Binding Source={StaticResource settings}, Path=Default.MainWidth, Mode=TwoWay}"
+        WindowState="{Binding Source={StaticResource settings}, Path=Default.MainState, Mode=TwoWay}">
+
+    <Window.InputBindings>
+        <KeyBinding Command="Open"
+                    Key="O"
+                    Modifiers="Control" />
+        <KeyBinding Command="Close"
+                    Key="X"
+                    Modifiers="Control" />
+    </Window.InputBindings>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="Open"
+                        Executed="OnOpenFile" />
+        <CommandBinding Command="Close"
+                        Executed="OnExit" />
+    </Window.CommandBindings>
+
+    <Window.Resources>
+        <ControlTemplate x:Key="NoBorderButton"
+                         TargetType="{x:Type Button}">
+            <Border BorderBrush="WhiteSmoke"
+                    BorderThickness="0"
+                    CornerRadius="5">
+                <Border BorderBrush="WhiteSmoke"
+                        BorderThickness="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <ContentPresenter Grid.Row="0" />
+                    </Grid>
+                </Border>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled"
+                         Value="False">
+                    <Setter Property="BorderBrush"
+                            Value="WhiteSmoke" />
+                    <Setter Property="BorderThickness"
+                            Value="0" />
+                </Trigger>
+                <Trigger Property="IsEnabled"
+                         Value="True">
+                    <Setter Property="BorderBrush"
+                            Value="WhiteSmoke" />
+                    <Setter Property="BorderThickness"
+                            Value="0" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid Name="gridTraceXView"
+          SizeChanged="Grid_SizeChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="30"
+                           MaxHeight="70"/>
+            <RowDefinition MinHeight="200"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="260" />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Row="0"
+                   Grid.ColumnSpan="4"
+                   HorizontalAlignment="Stretch">
+            <Menu Name="MenuBar"
+                  AutomationProperties.Name="MenuBar"
+                  Margin="0"
+                  VerticalAlignment="Top"
+                  DockPanel.Dock="Top"
+                  Grid.ColumnSpan="4"
+                  KeyboardNavigation.TabNavigation="None">
+                <MenuItem Header="_File"
+                          Name="MenuItem1">
+                    <MenuItem Name="mi1"
+                              Style="{StaticResource Triggers}"
+                              Header="_Open..."
+                              Command="Open"
+                              InputGestureText="Ctrl+O" />
+
+                    <z:RecentFileList x:Name="RecentFileList" />
+
+                    <MenuItem Name="mi2"
+                              Style="{StaticResource Triggers}"
+                              Header="_Exit"
+                              Command="Close"
+                              InputGestureText="Ctrl+X" />
+                </MenuItem>
+
+                <MenuItem Header="_View"
+                          Name="MenuItemView"
+                          IsEnabled="False">
+                    <MenuItem Header="_ThreadX Legend"
+                              Name="miLegend"
+                              Click="MiLegend_Click" />
+                    <MenuItem Header="_FileX Legend"
+                              Name="fxLegend"
+                              Click="FxLegend_Click" />
+                    <MenuItem Header="_NetX Legend"
+                              Name="nxLegend"
+                              Click="NxLegend_Click" />
+                    <MenuItem Header="_USBX Legend"
+                              Name="uxLegend"
+                              Click="UxLegend_Click" />
+                    <Separator />
+                    <MenuItem Header="_Execution Profile"
+                              Name="miExecProf"
+                              Click="OnExecProf" />
+                    <MenuItem Header="_Performance Statistics"
+                              Name="miPerfStatistics"
+                              Click="OnPerfStatistics" />
+                    <MenuItem Header="Thread _Stack Usage"
+                              Name="miStackUsage"
+                              Click="OnStackUsage" />
+                    <MenuItem Header="P_opular Services"
+                              Name="miPopServ"
+                              Click="OnPopServ" />
+                    <Separator />
+                    <MenuItem Header="Fi_leX Statistics"
+                              Name="miFileXStatistics"
+                              Click="OnFileXStatistics" />
+                    <MenuItem Header="Net_X Statistics"
+                              Name="miNetXStatistics"
+                              Click="OnNetXStatistics" />
+                    <Separator />
+                    <MenuItem Header="Trace File _Information"
+                              Name="TraceFileInfo"
+                              Click="OnTraceFileInfo" />
+                    <MenuItem Header="Raw Trace _Dump..."
+                              Name="rawDump"
+                              Click="OnRawDump" />
+                    <Separator />
+                    <MenuItem Header="_Current Event"
+                              Name="miCurrentEvent"
+                              Click="OnCurrentEvent" />
+                </MenuItem>
+
+                <MenuItem Header="_Options"
+                          Name="MenuItemOptions"
+                          IsEnabled="False">
+                    <MenuItem Header="_Ticks per Microsecond..."
+                              Name="miTickMapping"
+                              Click="OnMapTime">
+                        <MenuItem AutomationProperties.LabeledBy="{Binding ElementName=tickPerMicrosecondLabel}">
+                            <MenuItem.Header>
+                                <StackPanel>
+                                    <TextBlock Text="Ticks per Microsecond:"
+                                               Name="tickPerMicrosecondLabel" />
+                                    <TextBox Name="muSecondTextBox"
+                                             Focusable="True"
+                                             AcceptsReturn="False"
+                                             Width="98"
+                                             Margin="0, 2, 0, 2"
+                                             HorizontalAlignment="Left"
+                                             AutomationProperties.LabeledBy="{Binding ElementName=tickPerMicrosecondLabel}" />
+                                </StackPanel>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Name="statusLines"
+                              Header="_Status Lines">
+                        <MenuItem Name="statusLinesReady"
+                                  Header="_Ready Only"
+                                  IsCheckable="True"
+                                  IsChecked="{Binding Source={StaticResource settings}, Path=Default.statusLinesReadyOnly, Mode=TwoWay}" />
+                        <MenuItem Name="statusLinesAll"
+                                  Header="_All On"
+                                  IsCheckable="True"
+                                  IsChecked="{Binding Source={StaticResource settings}, Path=Default.statusLinesAllOn, Mode=TwoWay}" />
+                        <MenuItem Name="statusLinesOff"
+                                  Header="A_ll Off"
+                                  IsCheckable="True"
+                                  IsChecked="{Binding Source={StaticResource settings}, Path=Default.statusLinesAllOff, Mode=TwoWay}" />
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="_Help"
+                          Name="MenuItem3">
+                    <MenuItem Name="mi3"
+                              Style="{StaticResource Triggers}"
+                              Header="_Manual"
+                              Click="OnOpenManual" />
+                    <MenuItem Name="mi4"
+                              Style="{StaticResource Triggers}"
+                              Header="_About"
+                              Click="OnAbout" />
+                </MenuItem>
+            </Menu>
+
+            <Canvas Grid.Row="0"
+                    Grid.ColumnSpan="4"
+                    Background="LightGray">
+                <Canvas Name="canvasFiles"
+                        Grid.Row="0"
+                        Grid.Column="0">
+                    <Button AutomationProperties.Name="OpenFile"
+                            ToolTip="Open File"
+                            Canvas.Left="0"
+                            Template="{DynamicResource NoBorderButton}"
+                            Click="OnOpenFile">
+                        <Image Source="Images\Open_32x32.png" />
+                    </Button>
+
+                    <Button IsEnabled="False"
+                            Canvas.Left="36"
+                            Canvas.Top="3"
+                            Template="{DynamicResource NoBorderButton}">
+                        <Image Source="Images\separator.png" />
+                    </Button>
+
+                    <Button AutomationProperties.Name="OpenUserGuide"
+                            ToolTip="Open TraceX User Guide"
+                            Canvas.Left="46"
+                            Canvas.Top="4"
+                            Template="{DynamicResource NoBorderButton}"
+                            Click="OnOpenManual">
+                        <Image Source="Images\Information_24x24.png" />
+                    </Button>
+
+                    <Button IsEnabled="False"
+                            Canvas.Left="81"
+                            Canvas.Top="3"
+                            Template="{DynamicResource NoBorderButton}">
+                        <Image Source="Images\separator.png" />
+                    </Button>
+
+                    <Button Name="executionProfile"
+                            AutomationProperties.Name="ExecutionProfile"
+                            Visibility="Hidden"
+                            IsEnabled="False"
+                            ToolTip="Execution Profile"
+                            Canvas.Left="92"
+                            Canvas.Top="4"
+                            Template="{DynamicResource NoBorderButton}"
+                            Click="OnOpenExecutionProfile">
+                        <Image Source="Images\execution_profile.png" />
+                    </Button>
+
+                    <Button Name="executionProfileDisabled"
+                            AutomationProperties.Name="ExecutionProfileDisabled"
+                            Visibility="Visible"
+                            Canvas.Left="92"
+                            Canvas.Top="4"
+                            Template="{DynamicResource NoBorderButton}">
+                        <Image Source="Images\execution_profile_end.png" />
+                    </Button>
+
+                    <Button Name="performanceStatistics"
+                            AutomationProperties.Name="PerformanceStatistics"
+                            ToolTip="Performance Statistics"
+                            IsEnabled="False"
+                            Visibility="Hidden"
+                            Canvas.Left="122"
+                            Canvas.Top="4"
+                            Template="{DynamicResource NoBorderButton}"
+                            Click="OnOpenPerformanceStatistics">
+                        <Image Source="Images\preformance_statitics.png" />
+                    </Button>
+
+                    <Button Name="performanceStatisticsDisabled"
+                            AutomationProperties.Name="PerformanceStatisticsDisabled"
+                            Visibility="Visible"
+                            Canvas.Left="122"
+                            Canvas.Top="4"
+                            Template="{DynamicResource NoBorderButton}">
+                        <Image Source="Images\preformance_statitics_end.png" />
+                    </Button>
+
+                    <Button Name="threadStackUsage"
+                            AutomationProperties.Name="ThreadStackUsage"
+                            Visibility="Hidden"
+                            IsEnabled="False"
+                            ToolTip="Thread Stack Usage"
+                            Canvas.Left="152"
+                            Canvas.Top="4"
+                            Template="{DynamicResource NoBorderButton}"
+                            Click="OnOpenThreadStackUsage">
+                        <Image Source="Images\thread_stack.png" />
+                    </Button>
+
+                    <Button Name="threadStackUsageDisabled"
+                            AutomationProperties.Name="ThreadStackUsageDisabled"
+                            Visibility="Visible"
+                            Canvas.Left="152"
+                            Canvas.Top="4"
+                            Template="{DynamicResource NoBorderButton}">
+                        <Image Source="Images\thread_stack_end.png" />
+                    </Button>
+
+                    <Button IsEnabled="False"
+                            Canvas.Left="182"
+                            Canvas.Top="3"
+                            Template="{DynamicResource NoBorderButton}">
+                        <Image Source="Images\separator.png" />
+                    </Button>
+
+                    <Button Name="currentEvent"
+                            Visibility="Hidden"
+                            AutomationProperties.Name="EventView"
+                            IsEnabled="False"
+                            ToolTip="Selected Event View"
+                            Canvas.Left="193"
+                            Canvas.Top="4"
+                            Template="{DynamicResource NoBorderButton}"
+                            Click="OnCurrentEvent">
+                        <Image Source="Images\SingleEventDetail_32x32.png" />
+                    </Button>
+
+                    <Button Name="currentEventDisabled"
+                            AutomationProperties.Name="EventViewDisabled"
+                            Visibility="Visible"
+                            Width="32"
+                            Height="32"
+                            Canvas.Left="193"
+                            Canvas.Top="4"
+                            Template="{DynamicResource NoBorderButton}">
+                        <Image  Name="curerntEventDis"
+                                Source="Images\SingleEventDetail_32x32_end.png" />
+                    </Button>
+
+                    <Button Name="searchByValueButton"
+                            AutomationProperties.Name="SearchByValue"
+                            ToolTip="Search by Value"
+                            Canvas.Left="223"
+                            Canvas.Top="4"
+                            Template="{DynamicResource NoBorderButton}"
+                            Click="OnValueSearch">
+                        <Image Source="Images\Find_24x24.png" />
+                    </Button>
+
+                    <Button Name="searchByValueButtonDisabled"
+                            AutomationProperties.Name="SearchByValueDisabled"
+                            Canvas.Left="223"
+                            Canvas.Top="4"
+                            Template="{DynamicResource NoBorderButton}">
+                        <Image Source="Images\Find_24x24_end.png" />
+                    </Button>
+                </Canvas>
+
+                <Canvas Name="canvasZooms"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Width="140"
+                        VerticalAlignment="Center">
+                    <Button Canvas.Left="-10"
+                            Canvas.Top="3"
+                            IsEnabled="False"
+                            Template="{DynamicResource NoBorderButton}">
+                        <Image Source="Images\separator.png" />
+                    </Button>
+                    <z:ZoomToolbar x:Name="zoomToolbar"
+                                   AutomationProperties.Name="ZoomToolbar"
+                                   IsEnabled="False"
+                                   VerticalAlignment="Center"
+                                   Canvas.Top="3" />
+                    <Button Canvas.Left="140"
+                            Canvas.Top="3"
+                            IsEnabled="False"
+                            Template="{DynamicResource NoBorderButton}">
+                        <Image Source="Images\separator.png" />
+                    </Button>
+                </Canvas>
+
+                <Canvas Name="canvasNavigator"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Width="380"
+                        VerticalAlignment="Center">
+                    <Image Source="Images\separator.png" />
+
+                    <z:Navigator x:Name="navigator"
+                                 AutomationProperties.Name="NavigationBar"
+                                 IsEnabled="False"
+                                 VerticalAlignment="Center" />
+                </Canvas>
+
+                <Canvas Name="canvasDelta"
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        Width="200"
+                        VerticalAlignment="Center">
+
+                    <Label Name="tbxDeltaTicks"
+                           Canvas.Right="55"
+                           MinWidth="80"
+                           Height="32"
+                           Canvas.Top="3"
+                           FontSize="14"
+                           BorderBrush="Gray"
+                           BorderThickness="1"
+                           VerticalAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Right"
+                           Background="WhiteSmoke" />
+
+                    <Label Name="lblDeltaTicks"
+                           Width="80"
+                           Height="32"
+                           Canvas.Right="15"
+                           Canvas.Top="3"
+                           FontSize="14"
+                           BorderThickness="1.0"
+                           VerticalAlignment="Center"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Right">Delta</Label>
+
+                    <Button Canvas.Right="{Binding ElementName=tbxDeltaTicks, Path=ActualWidth}"
+                            IsEnabled="False"
+                            Margin="0,0,60,0"
+                            Canvas.Top="3"
+                            Template="{DynamicResource NoBorderButton}">
+                        <Image Source="Images\separator.png" />
+                    </Button>
+                </Canvas>
+            </Canvas>
+        </DockPanel>
+
+        <DockPanel Name="dpTraceXView"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="4">
+            <TabControl
+                        Margin="0,0,0,19"
+                        Name="tabViews"
+                        Visibility="Visible"
+                        SelectionChanged="TabViews_SelectionChanged" DockPanel.Dock="Top">
+                <TabItem Name="tabItemSquence"
+                         Header="Sequential View">
+                    <z:SequentialView Margin="0,0,0,0"
+                                      x:Name="sview1"
+                                      Focusable="False"
+                                      IsTabStop="False" />
+                </TabItem>
+                <TabItem Name="tabItemTime"
+                         Header="Time View">
+                    <z:TimeView Margin="0,0,0,0"
+                                x:Name="tview1"
+                                Focusable="False"
+                                IsTabStop="False" />
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>

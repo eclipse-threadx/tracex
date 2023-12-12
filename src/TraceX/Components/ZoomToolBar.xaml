@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="AzureRTOS.TraceManagement.Components.ZoomToolbar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="32"
+             Width="140">
+
+    <Grid Height="32"
+          Width="140">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="32" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="37" />
+        </Grid.ColumnDefinitions>
+
+        <Button Name="btnZoomIn"
+                AutomationProperties.Name="ZoomIn"
+                Grid.Column="0"
+                Template="{DynamicResource NoBorderButton}"
+                ToolTip="Zoom In"
+                Width="32"
+                Height="32"
+                VerticalAlignment="Center"
+                TextBlock.FontSize="20"
+                Click="btnZoomIn_Click">
+            <Image Name="image1"
+                   Source="/TraceX;component/Images/Zoom_In_32x32.png" />
+        </Button>
+
+        <Button Name="btnZoomInDisabled"
+                AutomationProperties.Name="Zoom In Disabled"
+                Grid.Column="0"
+                Template="{DynamicResource NoBorderButton}"
+                Visibility="Hidden"
+                Width="32"
+                Height="32"
+                VerticalAlignment="Center"
+                TextBlock.FontSize="20">
+            <Image Name="image4"
+                   Source="/TraceX;component/Images/Zoom_In_32x32_end.png" />
+        </Button>
+
+        <TextBox Name="txtZoomFactor"
+                 AutomationProperties.Name="ZoomFactor"
+                 Grid.Column="1"
+                 Width="70"
+                 Height="32"
+                 BorderBrush="Gray"
+                 BorderThickness="1"
+                 FontSize="14"
+                 VerticalAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Right"
+                 KeyDown="txtZoomFactor_KeyDown"
+                 PreviewKeyDown="txtZoomFactor_PreviewKeyDown" />
+
+        <Label Grid.Column="2"
+               Width="10"
+               Content="%"
+               FontSize="14" />
+
+        <Button Name="btnZoomOut"
+                AutomationProperties.Name="ZoomOut"
+                Grid.Column="3"
+                Template="{DynamicResource NoBorderButton}"
+                ToolTip="Zoom Out"
+                Margin="2,0,0,0"
+                Width="34"
+                Height="32"
+                VerticalAlignment="Center"
+                TextBlock.FontSize="20"
+                Click="btnZoomOut_Click">
+            <Image Name="image2"
+                   Source="/TraceX;component/Images/Zoom_Out_32x32.png" />
+        </Button>
+
+        <Button Name="btnZoomOutDisabled"
+                AutomationProperties.Name="Zoom Out Disabled"
+                Grid.Column="2"
+                Template="{DynamicResource NoBorderButton}"
+                Visibility="Hidden"
+                Margin="2,0,0,0"
+                Width="34"
+                Height="32"
+                VerticalAlignment="Center"
+                TextBlock.FontSize="20">
+            <Image Name="image5"
+                   Source="/TraceX;component/Images/Zoom_Out_32x32_end.png" />
+        </Button>
+    </Grid>
+</UserControl>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="AzureRTOS.TraceManagement.Dialogs.HeaderInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TraceX File Information"
+        Icon="/TraceX;component/Images/TraceX.ico"
+        Height="251"
+        Width="413"
+        ShowInTaskbar="False"
+        Topmost="True">
+    <Grid>
+        <ListBox Margin="9,13,11,8"
+                 Name="listBox1"
+                 AutomationProperties.Name="File Information"/>
+    </Grid>
+</Window>
