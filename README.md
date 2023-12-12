@@ -14,9 +14,7 @@ See [Overview of TraceX](https://learn.microsoft.com/en-us/azure/rtos/tracex/ove
 
     .
     ├── installer               # TraceX installer generator
-    ├── scripts                 # Scripts for GitHub Actions CI
     ├── src                     # Source files
-    ├── trace_files             # TraceX trace files
     ├── LICENSE.txt             # License terms
     ├── LICENSE-HARDWARE.txt    # Licensed hardware from semiconductors
     ├── CONTRIBUTING.md         # Contribution guidance
