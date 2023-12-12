@@ -106,12 +106,12 @@ The following are references to additional Azure RTOS resources:
 
 - **Product introduction and white papers**: https://azure.com/rtos
 - **General technical questions**: https://aka.ms/QnA/azure-rtos
-- **Product issues and bugs, or feature requests**: https://github.com/azure-rtos/guix/issues
+- **Product issues and bugs, or feature requests**: https://github.com/azure-rtos/tracex/issues
 - **Licensing and sales questions**: https://aka.ms/azrtos-license
 - **Product roadmap and support policy**: https://aka.ms/azrtos/lts
 - **Blogs and videos**: http://msiotblog.com and https://aka.ms/iotshow
 
-You can also check [previous questions](https://stackoverflow.com/questions/tagged/azure-rtos+guix) or ask new ones on StackOverflow using the `azure-rtos` and `tracex` tags.
+You can also check [previous questions](https://stackoverflow.com/questions/tagged/azure-rtos+tracex) or ask new ones on StackOverflow using the `azure-rtos` and `tracex` tags.
 
 ## Security
 
