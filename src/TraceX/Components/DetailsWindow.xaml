@@ -1,0 +1,134 @@
+﻿<ContentControl x:Class="AzureRTOS.TraceManagement.Components.DetailsWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Height="235"
+                Width="311"
+                MouseLeftButtonDown="ContentControl_MouseLeftButtonDown"
+                Focusable="True"
+                AutomationProperties.Name="Event Details">
+
+
+    <ContentControl.Resources>
+        <Style x:Key="ButtonFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border>
+                            <Rectangle Margin="0" StrokeThickness="1" Stroke="Black"/>
+                        </Border>
+                        
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--
+        <Polygon.Fill>
+            <SolidColorBrush Color="{TemplateBinding Background}"/>
+        </Polygon.Fill>
+        -->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#ff373737" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="IsDefault" Value="True" />
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Margin="0,0,-0.333,3">
+                            <Polygon Name="Xbtn"
+                             Canvas.Left="293"
+                             Canvas.Top="8"
+                             Width="14"
+                             Height="15"
+                             MouseEnter="btnClose_MouseEnter"
+                             MouseLeave="btnClose_MouseLeave"
+                             MouseLeftButtonDown="btnClose_MouseLeftButtonDown"
+                             
+                             Stroke="Black"
+                             StrokeThickness="0.5"
+                             Points="2 0 6 4 10 0 12 2 8 6 12 10 10 12 6 8 2 12 0 10 4 6 0 2"
+                             Margin="0,3,1.667,0" HorizontalAlignment="Right">
+                                <Polygon.Fill>
+                                    <SolidColorBrush Color="LightGray"/>
+                                </Polygon.Fill>
+                            </Polygon>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ContentControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Canvas Name="titleBar"
+                Grid.Row="0"
+                MouseLeftButtonDown="titleBar_MouseLeftButtonDown"
+                MouseMove="titleBar_MouseMove"
+                MouseLeftButtonUp="titleBar_MouseLeftButtonUp">
+            <Rectangle Width="311"
+                       Height="22"
+                       Stroke="Black"
+                       StrokeThickness="0.5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0"
+                                         EndPoint="0.5,1">
+                        <GradientStop Color="#ffeffafc"
+                                      Offset="0" />
+                        <GradientStop Color="#ff6a98b9"
+                                      Offset="0.4" />
+                        <GradientStop Color="#ffeffafc"
+                                      Offset="1" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock Name="titleText"
+                       Text="Event Details"
+                       Canvas.Left="5"
+                       Canvas.Top="2"
+                       Foreground="Black"
+                       FontWeight="Bold" />
+ 
+            <Button x:Name="CloseButton"
+                    AutomationProperties.Name="Close"
+                    Content=""
+                    Canvas.Left="288"
+                    Width="19"
+                    RenderTransformOrigin="-0.049,-0.352"
+                    Height="20"
+                    Click="btnClose_ClickHandler"
+                    Canvas.Top="3"/>
+        </Canvas>
+
+        <Canvas Grid.Row="1">
+            <Rectangle Width="311"
+                       Height="213"
+                       Stroke="#ff6a98b9"
+                       StrokeThickness="0.5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0"
+                                         EndPoint="1,1">
+                        <GradientStop Color="#ffeffafc"
+                                      Offset="0" />
+                        <GradientStop Color="#ffeffafc"
+                                      Offset="0.32" />
+                        <GradientStop Color="#ffeffafc"
+                                      Offset="1" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock Name="txtDetails"
+                       x:Uid="txtDetails"
+                       Canvas.Top="3"
+                       Canvas.Left="5"
+                       Foreground="Black"
+                       AutomationProperties.LiveSetting="Polite"
+                       IsVisibleChanged="txtDetails_IsVisibleChanged" />
+        </Canvas>
+    </Grid>
+</ContentControl>

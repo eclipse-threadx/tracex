@@ -1,0 +1,241 @@
+﻿<UserControl x:Class="AzureRTOS.TraceManagement.Components.Navigator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="38"
+             Width="380">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="38" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Button Name="btnFirst"
+                AutomationProperties.Name="FirstEvent"
+                Grid.Row="0"
+                Grid.Column="0"
+                Template="{DynamicResource NoBorderButton}"
+                ToolTip="First"
+                FontWeight="bold"
+                Click="BtnFirst_Click">
+            <Image Name="image1"
+                   Width="24"
+                   Height="24"
+                   FlowDirection="RightToLeft"
+                   Source="/TraceX;component/Images/Play_32x32.png" />
+        </Button>
+
+        <Button Name="btnPageUp"
+                AutomationProperties.Name="PageLeftEvent"
+                Grid.Row="0"
+                Grid.Column="1"
+                Template="{DynamicResource NoBorderButton}"
+                ToolTip="Page Left"
+                FontWeight="bold"
+                Click="BtnPageUp_Click">
+            <Image Name="image2"
+                   Width="24"
+                   Height="24"
+                   FlowDirection="RightToLeft"
+                   Source="/TraceX;component/Images/Play_24x24.png" />
+        </Button>
+
+        <Button Name="btnPrevious"
+                AutomationProperties.Name="PreviousEvent"
+                Grid.Row="0"
+                Grid.Column="2"
+                Template="{DynamicResource NoBorderButton}"
+                ToolTip="Previous"
+                FontWeight="bold"
+                Click="BtnPrevious_Click">
+            <Image Name="image3"
+                   Width="20"
+                   Height="20"
+                   FlowDirection="RightToLeft"
+                   Source="/TraceX;component/Images/Play_16x16.png" />
+        </Button>
+
+
+        <TextBox Name="textIndex"
+                 AutomationProperties.Name="EventIndex"
+                 Grid.Row="0"
+                 Grid.Column="3"
+                 BorderThickness="0"
+                 Height="32"
+                 FontSize="18"
+                 TextAlignment="Center"
+                 VerticalAlignment="Center"
+                 KeyDown="TextIndex_KeyDown"
+                 PreviewKeyDown="TextIndex_PreviewKeyDown" />
+
+        <Menu Name="cbbTypeT"
+              AutomationProperties.Name="EventMenu"
+              Grid.Row="0"
+              Grid.Column="4"
+              BorderThickness="0"
+              BorderBrush="WhiteSmoke"
+              FontSize="14"
+              Height="32"
+              VerticalAlignment="Center"
+              VerticalContentAlignment="Bottom">
+            <MenuItem Name="miSelection"
+                      Grid.Row="0"
+                      Grid.Column="4"
+                      BorderThickness="0"
+                      Width="80"
+                      Height="32"
+                      Header="Event"
+                      FontSize="14"
+                      Padding="10,8,0,0"
+                      VerticalAlignment="Center"
+                      VerticalContentAlignment="Center"
+                      HorizontalContentAlignment="Center"
+                      HorizontalAlignment="Right"
+                      IsEnabled="True">
+                <MenuItem Name="miEvent"
+                          Header="Event"
+                          BorderBrush="WhiteSmoke"
+                          Click="MiEvent_Click" />
+                <MenuItem Name="miContext"
+                          Header="Context"
+                          BorderBrush="WhiteSmoke"
+                          Click="MiContext_Click" />
+                <MenuItem Name="miObject"
+                          Header="Object"
+                          BorderBrush="WhiteSmoke" />
+                <MenuItem Name="miSwitches"
+                          Header="Switches"
+                          Click="MiSwitches_Click" />
+                <MenuItem Name="miID"
+                          Header="ID"
+                          BorderBrush="WhiteSmoke" />
+            </MenuItem>
+        </Menu>
+
+        <Button Name="btnNext"
+                AutomationProperties.Name="NextEvent"
+                Grid.Row="0"
+                Grid.Column="5"
+                Template="{DynamicResource NoBorderButton}"
+                ToolTip="Next"
+                FontWeight="bold"
+                Click="BtnNext_Click">
+            <Image Name="image4"
+                   Width="20"
+                   Height="20"
+                   Source="/TraceX;component/Images/Play_16x16.png" />
+        </Button>
+
+        <Button Name="btnPageDown"
+                AutomationProperties.Name="PageRightEvent"
+                Grid.Row="0"
+                Grid.Column="6"
+                Template="{DynamicResource NoBorderButton}"
+                ToolTip="Page Right"
+                FontWeight="bold"
+                Click="BtnPageDown_Click">
+            <Image Name="image5"
+                   Width="24"
+                   Height="24"
+                   Source="/TraceX;component/Images/Play_24x24.png" />
+        </Button>
+
+        <Button Name="btnLast"
+                AutomationProperties.Name="LastEvent"
+                Grid.Row="0"
+                Grid.Column="7"
+                Template="{DynamicResource NoBorderButton}"
+                ToolTip="Last"
+                FontWeight="bold"
+                Click="BtnLast_Click">
+            <Image Name="image6"
+                   Width="24"
+                   Height="24"
+                   Source="/TraceX;component/Images/Play_32x32.png" />
+        </Button>
+
+        <Button Name="btnFirstDisabled"
+                Grid.Row="0"
+                Grid.Column="0"
+                Template="{DynamicResource NoBorderButton}"
+                ToolTip="First"
+                FontWeight="bold">
+            <Image Name="image12"
+                   Width="24"
+                   Height="24"
+                   FlowDirection="RightToLeft"
+                   Source="/TraceX;component/Images/Play_32x32_end.png" />
+        </Button>
+
+        <Button Name="btnPageUpDisabled"
+                Grid.Row="0"
+                Grid.Column="1"
+                Template="{DynamicResource NoBorderButton}"
+                Visibility="Hidden"
+                FontWeight="bold">
+            <Image Name="image7"
+                   Width="24"
+                   Height="24"
+                   FlowDirection="RightToLeft"
+                   Source="/TraceX;component/Images/Play_24x24_end.png" />
+        </Button>
+
+        <Button Name="btnPreviousDisabled"
+                Grid.Row="0"
+                Grid.Column="2"
+                Template="{DynamicResource NoBorderButton}"
+                Visibility="Hidden"
+                FontWeight="bold">
+            <Image Name="image8"
+                   Width="20"
+                   Height="20"
+                   FlowDirection="RightToLeft"
+                   Source="/TraceX;component/Images/Play_16x16_end.png" />
+        </Button>
+
+        <Button Name="btnNextDisabled"
+                Grid.Row="0"
+                Grid.Column="5"
+                Template="{DynamicResource NoBorderButton}"
+                Visibility="Hidden"
+                FontWeight="bold">
+            <Image Name="image9"
+                   Width="20"
+                   Height="20"
+                   Source="/TraceX;component/Images/Play_16x16_end.png" />
+        </Button>
+
+        <Button Name="btnPageDownDisabled"
+                Grid.Row="0"
+                Grid.Column="6"
+                Template="{DynamicResource NoBorderButton}"
+                Visibility="Hidden"
+                FontWeight="bold">
+            <Image Name="image10"
+                   Width="24"
+                   Height="24"
+                   Source="/TraceX;component/Images/Play_24x24_end.png" />
+        </Button>
+
+        <Button Name="btnLastDisabled"
+                Grid.Row="0"
+                Grid.Column="7"
+                Template="{DynamicResource NoBorderButton}"
+                Visibility="Hidden"
+                FontWeight="bold">
+            <Image Name="image11"
+                   Width="24"
+                   Height="24"
+                   Source="/TraceX;component/Images/Play_32x32_end.png" />
+        </Button>
+    </Grid>
+</UserControl>

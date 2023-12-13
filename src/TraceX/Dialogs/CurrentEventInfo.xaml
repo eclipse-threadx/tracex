@@ -1,0 +1,16 @@
+﻿<Window x:Class="AzureRTOS.TraceManagement.Dialogs.CurrentEventInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Current Event Information"
+        Icon="/TraceX;component/Images/TraceX.ico"
+        Height="Auto"
+        Width="Auto"
+        SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False"
+        Topmost="True">
+    <Grid>
+        <TextBlock Name="txtDetails"
+                   Canvas.Top="3"
+                   Canvas.Left="5"/>
+    </Grid>
+</Window>

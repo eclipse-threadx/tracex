@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E6E35589-797E-4C15-A8FB-1602FC1B84C8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AzureRTOS.TraceManagement</RootNamespace>
+    <AssemblyName>TraceX</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <ManifestCertificateThumbprint>CFB57A4197C1465F6B9C8A0E011BC87B9346ACF5</ManifestCertificateThumbprint>
+    <ManifestKeyFile>TraceX_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\tracex\TraceX Install\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <SupportUrl>http://www.rtos.com</SupportUrl>
+    <ProductName>TraceX 5.6.1.1</ProductName>
+    <PublisherName>Microsoft Corporation</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>6.0.0.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TraceX.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Components\DeltaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\DetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Navigator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\SequentialView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\TimeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ZoomToolbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\CurrentEventInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ExecutionProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\FileXStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\FindByValue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\Legend.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\NetXStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\PerformStats.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\PopularServices.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\HeaderInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\StackUsage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Splash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TraceXView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\EventArrays.cs" />
+    <Compile Include="Code\EventTypeDict.cs" />
+    <Compile Include="Code\menuInformation.cs" />
+    <Compile Include="Code\PopServItemTypeListViewItem.cs" />
+    <Compile Include="Code\ThreadStackUsageItem.cs" />
+    <Compile Include="Code\Event.cs" />
+    <Compile Include="Code\Indicator.cs" />
+    <Compile Include="Code\Information.cs" />
+    <Compile Include="Code\NavEventArgs.cs" />
+    <Compile Include="Code\PopServItem.cs" />
+    <Compile Include="Code\ThreadStackUsageItemTypeListViewItem.cs" />
+    <Compile Include="Code\EventInfoTypes.cs" />
+    <Compile Include="Code\EventInfoDict.cs" />
+    <Compile Include="Code\TraceFileInfo.cs" />
+    <Compile Include="Code\TraceViewConstant.cs" />
+    <Compile Include="Code\ThreadComparer.cs" />
+    <Compile Include="Components\DeltaWindow.xaml.cs">
+      <DependentUpon>DeltaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\DetailsWindow.xaml.cs">
+      <DependentUpon>DetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\EventComparer.cs" />
+    <Compile Include="Components\ITraceView.cs" />
+    <Compile Include="Components\Navigator.xaml.cs">
+      <DependentUpon>Navigator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SequentialView.xaml.cs">
+      <DependentUpon>SequentialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\TimeView.xaml.cs">
+      <DependentUpon>TimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\TraceViewControl.cs" />
+    <Compile Include="Components\ZoomToolbar.xaml.cs">
+      <DependentUpon>ZoomToolbar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CurrentEventInfo.xaml.cs">
+      <DependentUpon>CurrentEventInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ExecutionProfile.xaml.cs">
+      <DependentUpon>ExecutionProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FileXStatistics.xaml.cs">
+      <DependentUpon>FileXStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FindByValue.xaml.cs">
+      <DependentUpon>FindByValue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Legend.xaml.cs">
+      <DependentUpon>Legend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\NetXStatistics.xaml.cs">
+      <DependentUpon>NetXStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\PerformStats.xaml.cs">
+      <DependentUpon>PerformStats.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\PopularServices.xaml.cs">
+      <DependentUpon>PopularServices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\HeaderInfo.xaml.cs">
+      <DependentUpon>HeaderInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\StackUsage.xaml.cs">
+      <DependentUpon>StackUsage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Components\RecentFileList.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Splash.xaml.cs">
+      <DependentUpon>Splash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TraceXView.xaml.cs">
+      <DependentUpon>TraceXView.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ELTMLManaged\ELTMLManaged.vcxproj">
+      <Project>{16FE35B1-A8A0-4CCC-8EC3-E24F29EA3E42}</Project>
+      <Name>ELTMLManaged</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TraceLibraryInterop\TraceLibraryInterop.csproj">
+      <Project>{4E9354D1-0580-436B-B3D9-B7E588367804}</Project>
+      <Name>TraceLibraryInterop</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Event.ico" />
+    <Resource Include="Images\Event.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tracexlogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TraceX.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\zoom_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Open_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Open_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Play_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Play_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Play_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Print_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Print_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Zoom_In_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Zoom_In_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Zoom_Out_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Zoom_Out_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\separator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Information_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Play_16x16_end.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Play_24x24_end.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Play_32x32_end.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Zoom_Out_32x32_end.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Zoom_In_32x32_end.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SingleEventDetail_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SingleEventDetail_32x32_end.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Find_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Find_24x24_end.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cpu_utilization.png" />
+    <Resource Include="Images\execution_profile.png" />
+    <Resource Include="Images\preformance_statitics.png" />
+    <Resource Include="Images\thread_stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\execution_profile_end.png" />
+    <Resource Include="Images\preformance_statitics_end.png" />
+    <Resource Include="Images\thread_stack_end.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\black_triangle_24x24.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Play_24x24_next.png" />
+    <Resource Include="Images\Play_24x24_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TraceX.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

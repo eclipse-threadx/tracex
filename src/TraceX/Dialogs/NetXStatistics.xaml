@@ -1,0 +1,51 @@
+﻿<Window x:Class="AzureRTOS.TraceManagement.Dialogs.NetXStatistics"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TraceX: NetX Statistics"
+        Icon="/TraceX;component/Images/TraceX.ico"
+        Height="560"
+        Width="430"
+        ShowInTaskbar="False"
+        Topmost="True">
+
+    <Window.Resources>
+        <DataTemplate x:Key="StatCountTemplate">
+            <DockPanel>
+                <TextBlock MinHeight="12"
+                           MinWidth="145">
+                    <TextBlock.Text>
+                        <Binding Path="Content.stringCount" />
+                    </TextBlock.Text>
+                </TextBlock>
+            </DockPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="StatNameTemplate">
+            <DockPanel>
+                <TextBlock MinHeight="12"
+                           MinWidth="145">
+                    <TextBlock.Text>
+                        <Binding Path="Content.Name" />
+                    </TextBlock.Text>
+                </TextBlock>
+            </DockPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <ListView Grid.Row="1"
+                  Name="listView1"
+                  AutomationProperties.Name="NetX Statistics">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Statistic"
+                                    CellTemplate="{StaticResource StatNameTemplate}"
+                                    Width="250" />
+                    <GridViewColumn Header="Occurrences"
+                                    CellTemplate="{StaticResource StatCountTemplate}"
+                                    Width="145" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
