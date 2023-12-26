@@ -20,7 +20,7 @@ namespace AzureRTOS.TraceManagement
 
     public partial class TraceXView : Window
     {
-        public const string _tracexVersion = "Azure RTOS TraceX 6.3.0.0";
+        public const string _tracexVersion = "Azure RTOS TraceX 6.4.0.0";
 
         private List<Window> _infoWindows = new List<Window>();
         private const double _eventDisplayWidth = 12;

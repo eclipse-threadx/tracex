@@ -7,12 +7,12 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{1D4932BC-ACD4-4292-9530-92C8BE2E58CF}
 AppName=TraceX
-AppVersion=6.3.0.0
+AppVersion=6.4.0.0
 ;AppPublisher=
 AppPublisherURL=https://azure.com/rtos
 AppSupportURL=https://azure.com/rtos
 AppUpdatesURL=https://azure.com/rtos
-DefaultDirName={sd}\Azure_RTOS\TraceX_6.3
+DefaultDirName={sd}\Azure_RTOS\TraceX_6.4
 DefaultGroupName=Azure RTOS
 CloseApplications=no
 ;LicenseFile=
@@ -54,10 +54,10 @@ Source: "src\MsixPackageProject\TraceFiles\demo_netx_udp.trx"; DestDir: "{app}/T
 Source: "src\MsixPackageProject\TraceFiles\demo_threadx.trx"; DestDir: "{app}/TraceFiles"; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\TraceX 6.3\TraceX"; Filename: "{app}\TraceX.exe"
-Name: "{group}\TraceX 6.3\TraceX User's Guide"; Filename: "https://aka.ms/azrtos-tracex-user-guide"
-Name: "{group}\TraceX 6.3\{cm:UninstallProgram,TraceX}"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\TraceX 6.3.0.0"; Filename: "{app}\TraceX.exe"; Tasks: desktopicon
+Name: "{group}\TraceX 6.4\TraceX"; Filename: "{app}\TraceX.exe"
+Name: "{group}\TraceX 6.4\TraceX User's Guide"; Filename: "https://aka.ms/azrtos-tracex-user-guide"
+Name: "{group}\TraceX 6.4\{cm:UninstallProgram,TraceX}"; Filename: "{uninstallexe}"
+Name: "{commondesktop}\TraceX 6.4.0.0"; Filename: "{app}\TraceX.exe"; Tasks: desktopicon
 
 [Registry]
 Root: HKCR; Subkey: ".trx"; ValueType: string; ValueName: ""; ValueData: "TraceX Data File"; Flags: uninsdeletevalue; Tasks: associate
