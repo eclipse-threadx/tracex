@@ -44,11 +44,11 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <SupportUrl>http://www.rtos.com</SupportUrl>
-    <ProductName>TraceX 5.6.1.1</ProductName>
+    <ProductName>TraceX 6.4.0.0</ProductName>
     <PublisherName>Microsoft Corporation</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>6.0.0.0</ApplicationVersion>
+    <ApplicationVersion>6.4.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
