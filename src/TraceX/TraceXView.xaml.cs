@@ -20,7 +20,7 @@ namespace AzureRTOS.TraceManagement
 
     public partial class TraceXView : Window
     {
-        public const string _tracexVersion = "Azure RTOS TraceX 6.4.0.0";
+        public const string _tracexVersion = "Eclipse ThreadX TraceX 6.4.0.0";
 
         private List<Window> _infoWindows = new List<Window>();
         private const double _eventDisplayWidth = 12;
@@ -128,7 +128,7 @@ namespace AzureRTOS.TraceManagement
                 // Create the default directory, otherwise the Browser dialog
                 // will not allow us to start there:
 
-                string default_path = "C:\\Azure_RTOS\\TraceX";
+                string default_path = "C:\\Eclipse_ThreadX\\TraceX";
 
                 if (!Directory.Exists(default_path))
                 {
@@ -1115,7 +1115,7 @@ namespace AzureRTOS.TraceManagement
         public static string GetInstallDir()
         {
             // default to something reasonable in case registry key lookup fails
-            string installDir = "C:\\Azure_RTOS\\TraceX";
+            string installDir = "C:\\Eclipse_ThreadX\\TraceX";
 
             string installPath = Path.GetDirectoryName(Application.ResourceAssembly.Location);
             if (!installPath.Contains("WindowsApps"))
@@ -1157,7 +1157,7 @@ namespace AzureRTOS.TraceManagement
         // Handler for Help -> Manual.
         private void OnOpenManual(object sender, RoutedEventArgs e)
         {
-            string url = "https://docs.microsoft.com/en-us/azure/rtos/tracex/";
+            string url = "https://github.com/eclipse-threadx/rtos-docs";
             System.Diagnostics.Process.Start(url);
         }
 

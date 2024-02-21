@@ -9,13 +9,13 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="Microsoft.AzureRTOSTraceX"
-    Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    Name="Eclipse.EclipseThreadXTraceX"
+    Publisher="CN=Eclipse Foundation, O=Eclipse Foundation, L=Ottawa, S=Ontario, C=CA"
     Version="6.4.0.0" />
 
   <Properties>
-    <DisplayName>Azure RTOS TraceX</DisplayName>
-    <PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
+    <DisplayName>Eclipse ThreadX TraceX</DisplayName>
+    <PublisherDisplayName>Eclipse Foundation</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
@@ -34,8 +34,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Azure RTOS TraceX"
-        Description="Azure RTOS TraceX"
+        DisplayName="Eclipse ThreadX TraceX"
+        Description="Eclipse ThreadX TraceX"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
