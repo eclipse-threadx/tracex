@@ -64,7 +64,7 @@ Root: HKCR; Subkey: ".trx"; ValueType: string; ValueName: ""; ValueData: "TraceX
 Root: HKCR; Subkey: "TraceX_Data_File\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\TraceX.exe,0"; Tasks: associate
 Root: HKCR; Subkey: "TraceX_Data_File\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\TraceX.exe"" ""%1"""; Tasks: associate
 
-Root: HKLM; Subkey: "Software\Microsoft Corporation\TraceX\InstallDir"; ValueType: string; ValueName: ""; ValueData: "{app}";
+Root: HKLM; Subkey: "Software\Eclipse Foundation\TraceX\InstallDir"; ValueType: string; ValueName: ""; ValueData: "{app}";
 
 [Run]
 ; Filename: "{app}\TraceX.exe"; Description: "{cm:LaunchProgram,TraceX}"; Flags: nowait postinstall skipifsilent
