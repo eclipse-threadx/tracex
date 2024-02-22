@@ -8,12 +8,12 @@
 AppId={{1D4932BC-ACD4-4292-9530-92C8BE2E58CF}
 AppName=TraceX
 AppVersion=6.4.0.0
-;AppPublisher=
-AppPublisherURL=https://azure.com/rtos
-AppSupportURL=https://azure.com/rtos
-AppUpdatesURL=https://azure.com/rtos
-DefaultDirName={sd}\Azure_RTOS\TraceX_6.4
-DefaultGroupName=Azure RTOS
+AppPublisher=Eclipse Foundation
+AppPublisherURL=https://threadx.io/
+AppSupportURL=https://threadx.io/
+AppUpdatesURL=https://threadx.io/
+DefaultDirName={sd}\Eclipse_ThreadX\TraceX_6.4
+DefaultGroupName=Eclipse ThreadX
 CloseApplications=no
 ;LicenseFile=
 OutputBaseFilename=tracex_setup
@@ -55,7 +55,7 @@ Source: "src\MsixPackageProject\TraceFiles\demo_threadx.trx"; DestDir: "{app}/Tr
 
 [Icons]
 Name: "{group}\TraceX 6.4\TraceX"; Filename: "{app}\TraceX.exe"
-Name: "{group}\TraceX 6.4\TraceX User's Guide"; Filename: "https://aka.ms/azrtos-tracex-user-guide"
+Name: "{group}\TraceX 6.4\TraceX User's Guide"; Filename: "https://github.com/eclipse-threadx/rtos-docs/blob/main/rtos-docs/tracex/overview-tracex.md"
 Name: "{group}\TraceX 6.4\{cm:UninstallProgram,TraceX}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\TraceX 6.4.0.0"; Filename: "{app}\TraceX.exe"; Tasks: desktopicon
 
@@ -64,7 +64,7 @@ Root: HKCR; Subkey: ".trx"; ValueType: string; ValueName: ""; ValueData: "TraceX
 Root: HKCR; Subkey: "TraceX_Data_File\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\TraceX.exe,0"; Tasks: associate
 Root: HKCR; Subkey: "TraceX_Data_File\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\TraceX.exe"" ""%1"""; Tasks: associate
 
-Root: HKLM; Subkey: "Software\Microsoft Corporation\TraceX\InstallDir"; ValueType: string; ValueName: ""; ValueData: "{app}";
+Root: HKLM; Subkey: "Software\Eclipse Foundation\TraceX\InstallDir"; ValueType: string; ValueName: ""; ValueData: "{app}";
 
 [Run]
 ; Filename: "{app}\TraceX.exe"; Description: "{cm:LaunchProgram,TraceX}"; Flags: nowait postinstall skipifsilent

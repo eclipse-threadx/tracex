@@ -14,8 +14,8 @@
     Version="6.4.0.0" />
 
   <Properties>
-    <DisplayName>Azure RTOS TraceX</DisplayName>
-    <PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
+    <DisplayName>Eclipse ThreadX TraceX</DisplayName>
+    <PublisherDisplayName>Eclipse Foundation</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
@@ -34,8 +34,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Azure RTOS TraceX"
-        Description="Azure RTOS TraceX"
+        DisplayName="Eclipse ThreadX TraceX"
+        Description="Eclipse ThreadX TraceX"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
