@@ -1157,7 +1157,7 @@ namespace AzureRTOS.TraceManagement
         // Handler for Help -> Manual.
         private void OnOpenManual(object sender, RoutedEventArgs e)
         {
-            string url = "https://github.com/eclipse-threadx/rtos-docs";
+            string url = "https://github.com/eclipse-threadx/rtos-docs/blob/main/rtos-docs/tracex/overview-tracex.md";
             System.Diagnostics.Process.Start(url);
         }
 

@@ -10,7 +10,7 @@
 
   <Identity
     Name="Eclipse.EclipseThreadXTraceX"
-    Publisher="CN=Eclipse Foundation, O=Eclipse Foundation, L=Ottawa, S=Ontario, C=CA"
+    Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
     Version="6.4.0.0" />
 
   <Properties>
