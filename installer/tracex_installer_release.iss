@@ -7,7 +7,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{1D4932BC-ACD4-4292-9530-92C8BE2E58CF}
 AppName=TraceX
-AppVersion=6.4.0.0
+AppVersion=6.4.1.0
 AppPublisher=Eclipse Foundation
 AppPublisherURL=https://threadx.io/
 AppSupportURL=https://threadx.io/
@@ -16,7 +16,7 @@ DefaultDirName={sd}\Eclipse_ThreadX\TraceX_6.4
 DefaultGroupName=Eclipse ThreadX
 CloseApplications=no
 ;LicenseFile=
-OutputBaseFilename=tracex_setup
+OutputBaseFilename=trace_studio_setup_version_6.4.1.0
 SetupIconFile=src\TraceX.ico
 Compression=lzma
 SolidCompression=yes
@@ -57,7 +57,7 @@ Source: "src\MsixPackageProject\TraceFiles\demo_threadx.trx"; DestDir: "{app}/Tr
 Name: "{group}\TraceX 6.4\TraceX"; Filename: "{app}\TraceX.exe"
 Name: "{group}\TraceX 6.4\TraceX User's Guide"; Filename: "https://github.com/eclipse-threadx/rtos-docs/blob/main/rtos-docs/tracex/overview-tracex.md"
 Name: "{group}\TraceX 6.4\{cm:UninstallProgram,TraceX}"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\TraceX 6.4.0.0"; Filename: "{app}\TraceX.exe"; Tasks: desktopicon
+Name: "{commondesktop}\TraceX 6.4.1.0"; Filename: "{app}\TraceX.exe"; Tasks: desktopicon
 
 [Registry]
 Root: HKCR; Subkey: ".trx"; ValueType: string; ValueName: ""; ValueData: "TraceX Data File"; Flags: uninsdeletevalue; Tasks: associate
