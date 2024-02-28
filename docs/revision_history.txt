@@ -1,0 +1,25 @@
+                                            TraceX
+                                            
+For version 6 and higher, please refer to the release notes on GitHub at https://github.com/eclipse-threadx/tracex/releases.
+Below is the revision history for 5.x.
+
+05/05/2009  TraceX version 5.0.1. This release includes the following 
+            modifications:
+
+            - Added tool bar for various navigation and control buttons.
+            - Added zoom in/out features.
+            - Added ability to calculate the ticks between any two events
+              in the trace.
+            - Added enhanced navigation facilities to search forward/backward
+              on a specific object, event ID, context, or context switch.
+            - Added context information for each context upon mouse-over.
+            - Added ability to reorder context entries.
+            - Added FileX and NetX support, including run-time analysis.
+            - Added priority inversion detection and display.
+            - Added raw trace dump capability.
+            - Added ability to automatically convert input files in HEX or
+              Motorola S-record format.
+            - Corrected a run-time analysis problem detecting context switches 
+              that occur between the first and second event.
+            - Improved trace accuracy.
+            - Updated TraceX User Guide.
