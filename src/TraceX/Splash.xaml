@@ -17,15 +17,15 @@
                        FontSize="18"
                        FontWeight="Black"
                        Foreground="Gold"
-                       Canvas.Left="151"
+                       Canvas.Left="137"
                        Canvas.Top="125"
                        TextAlignment="Center"
-                       Name="VersionString" Width="248"/>
+                       Name="VersionString" Width="280"/>
             <TextBlock Text="Build Date:"
                        FontSize="11"
                        FontWeight="Black"
                        Foreground="Gold"
-                       Canvas.Left="151"
+                       Canvas.Left="153"
                        Canvas.Top="166"
                        TextAlignment="Center"
                        Name="BuildDateText"
