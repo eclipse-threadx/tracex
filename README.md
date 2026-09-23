@@ -6,7 +6,7 @@ The Eclipse ThreadX TraceX installer is available here: https://aka.ms/azrtos-tr
 
 ## Getting Started
 
-See [Overview of TraceX](https://github.com/eclipse-threadx/rtos-docs/blob/main/rtos-docs/tracex/overview-tracex.md) for the high-level overview.
+See [Overview of TraceX](https://threadx.io/releases/6.5.1/tracex/main/overview-tracex.html) for the high-level overview.
 
 ## Repository Structure and Usage
 
@@ -98,7 +98,7 @@ License terms for using Eclipse ThreadX are defined in the LICENSE.txt file of t
 
 The following are references to additional Eclipse ThreadX resources:
 
-- **Product introduction**: https://github.com/eclipse-threadx/rtos-docs
+- **Product introduction**: https://threadx.io/releases/latest
 - **Product issues and bugs, or feature requests**: https://github.com/eclipse-threadx/tracex/issues
 - **TraceX Installer**: https://aka.ms/azrtos-tracex-installer
 

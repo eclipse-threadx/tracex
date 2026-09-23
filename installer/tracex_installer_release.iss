@@ -55,7 +55,7 @@ Source: "src\MsixPackageProject\TraceFiles\demo_threadx.trx"; DestDir: "{app}/Tr
 
 [Icons]
 Name: "{group}\TraceX 6.4\TraceX"; Filename: "{app}\TraceX.exe"
-Name: "{group}\TraceX 6.4\TraceX User's Guide"; Filename: "https://github.com/eclipse-threadx/rtos-docs/blob/main/rtos-docs/tracex/overview-tracex.md"
+Name: "{group}\TraceX 6.4\TraceX User's Guide"; Filename: "https://threadx.io/releases/6.5.1/tracex/main/overview-tracex.html"
 Name: "{group}\TraceX 6.4\{cm:UninstallProgram,TraceX}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\TraceX 6.4.1.0"; Filename: "{app}\TraceX.exe"; Tasks: desktopicon
 
